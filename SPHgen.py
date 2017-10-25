@@ -124,6 +124,9 @@ def run(sphsize,STLFilename,outputFilename):
     fin1.close()
     fin2.close()
     fut.close()
+    os.remove('sphnodesX.txt')
+    os.remove('sphpidX.pid')
+    
     
                     
 #   --   MAIN   ---
@@ -144,7 +147,7 @@ if __name__ == "__main__":
         print(' $ python3 SPHgen -i filename.stl [-s SPHsize(default=0.5)] [-o Output filename]\n')
         run=False
     sphsize=0.5
-    outputFilename="default.sph"
+    outputFilename="default.k"
     for o, a in opts:
         print(o,a)
         if o in '-i':
@@ -155,8 +158,8 @@ if __name__ == "__main__":
             outputFilename=a;
 
     inFileName, inFileExtension = os.path.splitext(STLFilename)
-    if outputFilename == "default.sph":
-        outputFilename = inFileName+".sph"
+    if outputFilename == "default.k":
+        outputFilename = inFileName+".k"
     
     # parameters=readParameters(parameterFilename)
     run(sphsize,STLFilename,outputFilename)
