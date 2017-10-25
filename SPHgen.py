@@ -26,6 +26,7 @@ def readVoxels(inputFilePath,sphSize):
         lines = slice.toIntersectingLines(mesh, height)
         prepixel = np.zeros((bounding_box[0], bounding_box[1]), dtype=bool)
         stltovoxel.perimeter.linesToVoxels(lines, prepixel)
+        print('lineToVoxel klar')
         vol[height] = prepixel
     vol, bounding_box = util.padVoxelArray(vol)
     return (vol,bounding_box,scale,shift)
@@ -56,9 +57,9 @@ def run(sphsize,STLFilename,outputFilename):
         for j in range(bounding_box[1]):
             for i in range(bounding_box[0]):
                 if vol[k][i][j]==True:
-                    x=(i-1)/scale[0]-shift[0]
-                    y=(j-1)/scale[1]-shift[1]
-                    z=(k-1)/scale[2]-shift[2]
+                    x=(i-1)/scale[0]+sphsize/2.-shift[0]
+                    y=(j-1)/scale[1]+sphsize/2.-shift[1]
+                    z=(k-1)/scale[2]+sphsize/2.-shift[2]
                     nodenum +=1
                     nodstrang = "                                                               0       0\n"
                     #  node number
