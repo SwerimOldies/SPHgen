@@ -22,9 +22,9 @@ http://www.lstc.com/lspp/
 
 ### How to run
 ```
-$ git clone https://github.com/Xnst/SPHgen.git
-$ cd SPHgen
-$ python3 SPHgen.py -i ~/path/to/file.stl [-s size] [-o ~/path/to/outfile.k]
+git clone https://github.com/Xnst/SPHgen.git
+cd SPHgen
+python3 SPHgen.py -i ~/path/to/file.stl [-s size] [-o ~/path/to/outfile.k]
 ```
 
 
